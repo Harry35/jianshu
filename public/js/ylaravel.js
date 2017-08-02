@@ -6,7 +6,7 @@ $.ajaxSetup({
 
 var editor = new wangEditor('content');
 
-if (editor.config == "undefined") {
+if (editor.config != "undefined") {
     editor.config.uploadImgUrl = '/posts/image/upload';
 
     // 设置 headers（举例）

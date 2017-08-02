@@ -7,37 +7,36 @@
     <div class="row">
         <div class="col-lg-10 col-xs-6">
             <div class="box">
-
                 <div class="box-header with-border">
-                    <h3 class="box-title">角色列表</h3>
+                    <h3 class="box-title">文章列表</h3>
                 </div>
-                <a type="button" class="btn " href="/admin/users/create" >增加角色</a>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
                                 <th style="width: 10px">#</th>
-                                <th>角色名称</th>
+                                <th>文章标题</th>
                                 <th>操作</th>
                             </tr>
-                            @foreach($users as $user)
+                            @foreach($posts as $post)
                             <tr>
-                                <td>{{$user->id}}.</td>
-                                <td>{{$user->name}}</td>
+                                <td>{{$post->id}}.</td>
+                                <td>{{$post->title}}</td>
                                 <td>
-                                    <a type="button" class="btn" href="/admin/roles/1/permission" >权限管理</a>
+                                    <button type="button" class="btn btn-block btn-default post-audit" post-id="{{$post->id}}" post-action-status="1" >通过</button>
+                                    <button type="button" class="btn btn-block btn-default post-audit" post-id="{{$post->id}}" post-action-status="-1" >拒绝</button>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{$users->links()}}
+                    {{$posts->links()}}
                 </div>
+
             </div>
         </div>
     </div>
 </section>
 <!-- /.content -->
 @endsection
- 
